@@ -1,12 +1,13 @@
 import React from "react";
 
-const getStars = (value) => {
+const getStars = (value, color) => {
   const stars = [1, 2, 3, 4, 5].map((number) => (
     <i
+      style={{ color }}
       className={
         value >= number
           ? "fas fa-star"
-          : number - value === Math.abs(0.5)
+          : value >= number - 0.5
           ? "fas fa-star-half-alt"
           : "far fa-star"
       }
@@ -16,10 +17,10 @@ const getStars = (value) => {
   return stars;
 };
 
-const Rating = ({ value, text }) => {
+const Rating = ({ value, text, color }) => {
   return (
     <div className="rating">
-      <span>{getStars(value)}</span>
+      <span>{getStars(value, color)}</span>
       <span>{text && text}</span>
     </div>
   );
