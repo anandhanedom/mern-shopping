@@ -1,6 +1,7 @@
 export const getStars = (value, color) => {
-  const stars = [1, 2, 3, 4, 5].map((number) => (
+  const stars = [1, 2, 3, 4, 5].map((number, index) => (
     <i
+      key={index}
       style={{ color }}
       className={
         value >= number
