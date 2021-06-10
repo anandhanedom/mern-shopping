@@ -1,12 +1,12 @@
 import React from "react";
 
 const getStars = (value) => {
-  const stars = [1, 2, 3, 4, 5].map((_, index) => (
+  const stars = [1, 2, 3, 4, 5].map((number) => (
     <i
       className={
-        value >= index
+        value >= number
           ? "fas fa-star"
-          : value >= 0.5
+          : number - value === Math.abs(0.5)
           ? "fas fa-star-half-alt"
           : "far fa-star"
       }
