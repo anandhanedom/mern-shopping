@@ -19,5 +19,9 @@
   "homepage": "https://github.com/anandhanedom/mern-shopping#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.7"
   }
 }
