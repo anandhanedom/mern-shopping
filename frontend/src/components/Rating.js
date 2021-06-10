@@ -1,21 +1,6 @@
 import React from "react";
-
-const getStars = (value, color) => {
-  const stars = [1, 2, 3, 4, 5].map((number) => (
-    <i
-      style={{ color }}
-      className={
-        value >= number
-          ? "fas fa-star"
-          : value >= number - 0.5
-          ? "fas fa-star-half-alt"
-          : "far fa-star"
-      }
-    ></i>
-  ));
-
-  return stars;
-};
+import { getStars } from "../utils";
+import PropTypes from "prop-types";
 
 const Rating = ({ value, text, color }) => {
   return (
@@ -24,6 +9,16 @@ const Rating = ({ value, text, color }) => {
       <span>{text && text}</span>
     </div>
   );
+};
+
+Rating.defaultProps = {
+  color: "#f8e825",
+};
+
+Rating.propTypes = {
+  value: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
 
 export default Rating;
