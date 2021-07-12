@@ -1,4 +1,4 @@
-export const getStars = (value, color) => {
+export const getStars = (value = 0, color) => {
   const stars = [1, 2, 3, 4, 5].map((number, index) => (
     <i
       key={index}
