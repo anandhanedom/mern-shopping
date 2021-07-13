@@ -21,10 +21,13 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       }
 
     case CART_REMOVE_ITEM:
+      const itemToRemove = action.payload;
+
       return {
         ...state,
-        loading: false,
-        products: action.payload,
+        cartItems: state.cartItems.filter(
+          (cartItem) => cartItem.product !== itemToRemove
+        ),
       };
 
     default:
