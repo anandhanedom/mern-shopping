@@ -1,5 +1,6 @@
 import User from "../models/userModel.js";
 import asyncHandler from "express-async-handler";
+import generateToken from "../utils/generateToken.js";
 
 // @desc    Authenticate user & get token
 // @route   POST api/users/login
@@ -11,7 +12,9 @@ const authUser = asyncHandler(async (req, res) => {
 
   if (user && (await user.matchPassword(password))) {
     const { _id, isAdmin, name, email } = user;
-    res.status(200).json({ _id, name, email, isAdmin, token: null });
+    res
+      .status(200)
+      .json({ _id, name, email, isAdmin, token: generateToken(_id) });
   } else {
     res.status(401);
     throw new Error("Invalid email or password");
